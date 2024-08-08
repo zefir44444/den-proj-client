@@ -1,0 +1,65 @@
+.scroll__inner img {
+  width: 400px;
+  height: 400px;
+  padding: 0 10px;
+  object-fit: cover;
+  border-radius: 7%;
+
+  transition: all .3s linear;
+}
+
+.scroll__inner img:hover {
+  border-radius: 0;
+}
+
+.scroll__inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll__inner:hover .scroll__section{
+  animation-play-state:paused;
+}
+
+.scroll__inner:hover .scroll__section_reverse{
+  animation-play-state:paused;
+}
+
+.scroll__wrapper {
+  position: absolute;
+  display: flex;
+  width: 300%;
+}
+
+.scroll__section {
+  display: flex;
+  flex: 0 0 auto;
+  animation: swipe var(--speed) linear infinite;
+}
+
+.scroll__section_reverse {
+  display: flex;
+  flex: 0 0 auto;
+  animation: swipe-reverse var(--speed) linear infinite;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipe-reverse {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
