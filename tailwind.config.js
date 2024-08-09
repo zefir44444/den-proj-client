@@ -7,6 +7,13 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'inner-strong': 'inset 0 4px 6px rgba(0, 0, 0, 0.6), inset 0 -4px 6px rgba(0, 0, 0, 0.6)',
+        'inner-middle': 'inset 0 4px 6px rgba(0, 0, 0, 0.4), inset 0 -4px 6px rgba(0, 0, 0, 0.4)',
+        'inner-daynight': 'inset 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 -5px 15px rgba(255, 255, 255, 0.4)',
+        'inner-daynight-dim': 'inset 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 -5px 15px rgba(0, 0, 0, 0.4)',
+        'inner-light': 'inset 0 4px 6px rgba(0, 0, 0, 0.2), inset 0 -4px 6px rgba(0, 0, 0, 0.2)',
+      },
       colors: {
         light: {
           foreground: '#27284E',
