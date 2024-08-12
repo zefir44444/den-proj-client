@@ -4,7 +4,6 @@ import menu_ico_dark from '../../assets/images/menu_ico_dark.svg';
 import close_ico_dark from '../../assets/images/close_ico_dark.svg';
 import menu_ico_light from '../../assets/images/menu_ico_light.svg';
 import close_ico_light from '../../assets/images/close_ico_light.svg';
-import './nav.style.css';
 
 import { NavOptions } from '../../assets/collections/nav-options.js';
 import { BtnComponent } from '../btn/btn-component.jsx';
@@ -13,13 +12,24 @@ import useWidth from '../../hooks/useWindowWidth.hook.jsx';
 import { SideNavComponent } from './sidenav.component.jsx';
 import { Varhub } from '../../var-hub.context.jsx';
 
+import asunno_logo from '../../assets/images/asunno_logo.svg';
+import asunno_logo_dark from '../../assets/images/asunno_logo_dark.svg';
+
+import './nav.style.css';
+import { useTranslation } from 'react-i18next';
+
 export const NavComponent = () => {
+  const { t, i18n } = useTranslation();
   const width = useWidth();
   const [isSidenav, setSidenav] = useState(false);
   const [vars, setVars] = useContext(Varhub);
 
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
   const toggleSidenav = () => {
-    setSidenav(prevState => {
+    setSidenav((prevState) => {
       const newSidenavState = !prevState;
       document.body.style.overflow = newSidenavState ? 'hidden' : 'auto';
       return newSidenavState;
@@ -36,11 +46,16 @@ export const NavComponent = () => {
   return (
     <div
       className="navbar bg-light-background dark:bg-dark-background dark:text-dark-foreground
-                    md:px-18 md:py-8 p-8
+                    md:px-18 md:py-8 p-5 max-w-[1200px] my-0 mx-auto 
                     flex items-center justify-between z-40 select-none">
       <div className="navbar-logo cursor-pointer">
         <Link to="/">
-          <h1 className="text-2xl text-orange-500">DEN LOGO</h1>
+          {/* <h1 className="text-2xl text-orange-500">DEN LOGO</h1> */}
+          <img
+            src={vars.isDarkTheme ? asunno_logo_dark : asunno_logo}
+            className="w-[200px]"
+            alt=""
+          />
         </Link>
       </div>
 
@@ -49,7 +64,9 @@ export const NavComponent = () => {
           <NavOptionsCmp />
 
           <div className="buttons" onClick={toggleTheme}>
-            <BtnComponent btnText={vars.isDarkTheme ? 'Light' : 'Dark'} />
+            <BtnComponent
+              btnText={vars.isDarkTheme ? t('nav.themes.0') : t('nav.themes.1')}
+            />
           </div>
         </div>
       ) : (
@@ -82,9 +99,11 @@ export const NavComponent = () => {
 };
 
 const NavOptionsCmp = () => {
+  const [t, i18n] = useTranslation();
+
   return (
     <ul className="links ml-8 flex items-center gap-8">
-      {NavOptions.map((option, index) => {
+      {t('nav.options', { returnObjects: true }).map((option, index) => {
         return (
           <li
             key={index}

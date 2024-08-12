@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import './promote-card.style.css';
 import { BtnComponent } from '../btn/btn-component';
 import useWindowWidth from '../../hooks/useWindowWidth.hook';
 import PromoteCardContext from './promotecard.context';
+import { useTranslation } from 'react-i18next';
 
 export const PromoteCardBigComponent = () => {
-  const { headingBig, cardText } = useContext(PromoteCardContext);
+  const [t, i18n] = useTranslation()
   const [isHovered, setIsHovered] = useState(false);
   const width = useWindowWidth();
 
@@ -16,8 +17,8 @@ export const PromoteCardBigComponent = () => {
       onMouseLeave={() => setIsHovered(false)}>
       <PromoteNoteCmp isHovered={isHovered} />
       <PromoteNoteCmp
-        heading={headingBig}
-        note={cardText}
+        heading={t('promote-card.heading')}
+        note={t('promote-card.card-text')}
         isFront={true}
         isHovered={isHovered}
       />
@@ -33,13 +34,14 @@ const PromoteNoteCmp = ({
 }) => {
   const { hoveredFront, defaultFront, hoveredBack, defaultBack } =
     useContext(PromoteCardContext);
+    const [t, i18n] = useTranslation()
 
   return (
     <div
       className={`promote-card
                 absolute w-[80%]
                 px-10 max-sm:py-7 py-20 
-                flex max-md:flex-col max-md:gap-10 justify-evenly items-center
+                flex max-[965px]:flex-col max-[965px]:gap-10 justify-evenly items-center
                 transition-all duration-200 ease-linear
                 rounded-xl
                 ${isHovered & isFront && hoveredFront}
@@ -47,14 +49,14 @@ const PromoteNoteCmp = ({
                 ${!isHovered & !isFront && defaultBack}
                 ${isHovered & !isFront && hoveredBack}`}>
       <div className="card-notes">
-        <div className="heading font-bold text-4xl">{heading}</div>
+        <div className="heading font-bold text-xl">{heading}</div>
         <div className="text text-[18px] mt-5">{note}</div>
       </div>
       <div className="card-btn">
         {isFront && (
           <a href="#contact-us">
             <BtnComponent
-            btnText="Contact us now"
+            btnText={t('contact-us-now')}
             btnType="wide"
             className="w-56"
           />

@@ -11,12 +11,14 @@ import {
 import { AboutUsCpmponent } from '../../components/about-us/about-us.component';
 import { PromoteCardBigComponent } from '../../components/promote-card/promote-card-big.component';
 import { CardComponentProvider } from '../../components/promote-card/promotecard.context';
+import { useTranslation } from 'react-i18next';
 
 export const HomePage = () => {
   const { heroImages } = useContext(HomePageContext);
+  const [t, i18n] = useTranslation()
   return (
     <HomePageProvider>
-      <div className="home-page dark:text-dark-foreground select-none">
+      <div className="home-page dark:text-dark-foreground select-none my-0 mx-auto max-w-[1800px] md:shadow-inner-light md:dark:shadow-inner-daynight-dim">
         <div className="p-10 max-sm:px-2 grid grid-flow-col auto-cols-fr gap-2 max-lg:grid-flow-row">
           <HeadingCmp />
           <AboutUsCpmponent />
@@ -31,16 +33,14 @@ export const HomePage = () => {
         />
         <div className="mb-10"></div>
 
-        <FeaturesComponent featuresContent={featuresContentFirst} />
+        <FeaturesComponent featuresContent={t('features.firstInstance', {returnObjects: true})} />
         <div className="mb-16"></div>
         <div className="mb-10">
-          <CardComponentProvider>
             <PromoteCardBigComponent />
-          </CardComponentProvider>
         </div>
         <div className="mb-16"></div>
         <FeaturesComponent
-          featuresContent={featuresContentSecond}
+          featuresContent={t('features.secondInstance', {returnObjects: true})}
           isReverse={true}
           aspect="square"
         />
@@ -62,24 +62,21 @@ export const HomePage = () => {
 };
 
 const HeadingCmp = ({ isBottom = false }) => {
-  const {
-    columnLargeText,
-    teamDescriptionText,
-    columnLargeTextBottom,
-    columnDescriptionText,
-  } = useContext(HomePageContext);
+
+  const [t, i18n] = useTranslation()
 
   return (
     <div className="px-11">
       <h1
+      style={{wordBreak:'anywhere'}}
         className="homepage-column flex flex-col 
                      items-center justify-center 
                      text-[48px] font-bold text-center leading-normal">
-        {isBottom ? columnLargeTextBottom : columnLargeText}
+        {isBottom ? t('heading-cmp.bottom.heading') : t('heading-cmp.top.heading')}
       </h1>
 
       <p className="text-start text-[18px] my-5">
-        {isBottom ? columnDescriptionText : teamDescriptionText}
+        {isBottom ? t('heading-cmp.bottom.text') : t('heading-cmp.top.text')}
       </p>
     </div>
   );

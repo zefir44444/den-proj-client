@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "options": [
+      { "name": "Koti", "path": "/" },
+      { "name": "Palvelut", "path": "/services" },
+      { "name": "Portfolio", "path": "/portfolio" },
+      { "name": "Meistä", "path": "/about" },
+      { "name": "Ota yhteyttä", "path": "/contact" }
+    ],
+    "themes": ["Päivä", "Yö"]
+  },
+  
+  "heading-cmp": {
+    "top": {
+      "heading": "Asunnon remontointi Suomessa",
+      "text": "Oletko päättänyt tehdä remontin? Asiantuntijamme ovat palveluksessasi! Kohtuulliset hinnat ja huipputason työn laatu - tämä on meidän motto! Sinun tarvitsee vain jättää pyyntö verkkosivustolle, me huolehdimme lopusta."
+    },
+    "bottom": {
+      "heading": "Tutustu remontointiratkaisuihimme",
+      "text": "Kustannusten tarkkaa määrittämistä varten mittausteknikko tulee luoksesi. Hän arvioi kodin kunnon, laskee valmistelutyön kustannukset ja valitsee kanssasi rakennus- ja viimeistelymateriaalit. Tämän jälkeen tiedät tarkalleen kunkin neliömetrin korjauskustannukset. Remontin arviointipalvelu on ilmainen."
+    }
+  },
+
+  "contact-us": {
+    "slogan": "Ota meihin yhteyttä jo tänään!",
+    "heading": "Ota yhteyttä",
+    "form-content": {
+      "name": "Nimi",
+      "email": "Sähköposti",
+      "message": "Viesti"
+    },
+    "btn-text": "Lähetä"
+  },
+
+  "features": {
+    "firstInstance": [
+      {
+        "pic": "/src/assets/images/features/f1.jpg",
+        "heading": "Laadukas Työnjälki",
+        "text": "Tarjoamme korkealaatuisia remontointipalveluja, jotka parantavat asuinympäristöäsi."
+      },
+      {
+        "pic": "/src/assets/images/features/f2.jpg",
+        "heading": "Räätälöidyt Ratkaisut",
+        "text": "Räätälöidyt remonttisuunnitelmat"
+      },
+      {
+        "pic": "/src/assets/images/features/f3.jpg",
+        "heading": "Asiantuntijatiimi",
+        "text": "Kokenut ja ammattitaitoinen tiimi"
+      }
+    ],
+    "secondInstance": [
+      {
+        "pic": "/src/assets/images/features/f1.jpg",
+        "heading": "Ilmainen Arviovalmistelu",
+        "text": "Arvio lasketaan mahdollisimman pian ja lähetetään sinulle sähköpostitse tarkistettavaksi ja muokattavaksi."
+      },
+      {
+        "pic": "/src/assets/images/features/f2.jpg",
+        "heading": "Ammattitaitoinen Tiimi",
+        "text": "Kokenut ammattilaistiimimme on sitoutunut tarjoamaan korkealaatuisia kodin remontointipalveluja."
+      },
+      {
+        "pic": "/src/assets/images/features/f3.jpg",
+        "heading": "Ei Ennakkoveloitusta",
+        "text": "Maksu suoritetaan, kun jokainen työvaihe on valmis."
+      }
+    ]
+  },
+
+  "contact-us-now": "Ota meihin yhteyttä nyt!",
+
+  "promote-card": {
+    "heading": "Muuta Kotisi Uuteen Upeuteen Remonttipalveluillamme",
+    "card-text": "Anna meidän auttaa sinua toteuttamaan unelmiesi koti. Kokenut ammattilaistiimimme on sitoutunut tarjoamaan korkealaatuisia, tarpeidesi mukaan räätälöityjä remonttipalveluja."
+  }
+}

@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import f1 from '../../assets/images/features/f1.jpg';
 import f2 from '../../assets/images/features/f2.jpg';
 import f3 from '../../assets/images/features/f3.jpg';
 
+const IMAGE_PATH = '/src/assets/images/features/';
+
 export const FeaturesComponent = ({
-  featuresContent = [
-    {
-      pic: f1,
-      heading: 'Quality Workmanship',
-      text: 'We deliver high-quality renovation services to enhance your living space.',
-    },
-    { pic: f2, heading: 'asd', text: 'qwe' },
-    { pic: f3, heading: 'asd', text: 'qwe' },
-  ],
+  featuresContent,
   isReverse = false,
   aspect = 'video',
 }) => {
-  const [featureImage, setFeatureImage] = useState(featuresContent[0].pic);
-  const [selectedFeature, setSelectedFeature] = useState(0);
+  const [featureImage, setFeatureImage] = useState(
+    featuresContent[0].pic
+  );
+  const [isSelectedFeature, setSelectedFeature] = useState(0);
   const borderedFeature =
     'border-l-2 border-dark-background dark:border-dark-foreground';
 
@@ -25,6 +21,10 @@ export const FeaturesComponent = ({
     setFeatureImage(img);
     setSelectedFeature(index);
   };
+
+  useEffect(() => {
+    console.log(featureImage);
+  }, []);
 
   return (
     <div
@@ -35,7 +35,7 @@ export const FeaturesComponent = ({
       <FeaturesHeadingsCmp
         featuresContent={featuresContent}
         borderedFeature={borderedFeature}
-        selectedFeature={selectedFeature}
+        isSelectedFeature={isSelectedFeature}
         toggleSelected={toggleSelected}
       />
     </div>
@@ -57,7 +57,7 @@ const FeaturesImageCmp = ({ featureImage, aspect }) => {
 const FeaturesHeadingsCmp = ({
   featuresContent,
   borderedFeature,
-  selectedFeature,
+  isSelectedFeature,
   toggleSelected,
 }) => {
   return (
@@ -66,7 +66,7 @@ const FeaturesHeadingsCmp = ({
         return (
           <div
             className={`features_text w-full cursor-pointer px-8 py-2 flex flex-col gap-5
-              ${index === selectedFeature ? borderedFeature : ''}`}
+              ${index === isSelectedFeature ? borderedFeature : ''}`}
             onClick={() => toggleSelected(item.pic, index)}
             role="button"
             key={index}>

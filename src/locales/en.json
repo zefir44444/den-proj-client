@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "options": [
+      { "name": "Home", "path": "/" },
+      { "name": "Services", "path": "/services" },
+      { "name": "Portfolio", "path": "/portfoliu" },
+      { "name": "About Us", "path": "/about" },
+      { "name": "Contact Us", "path": "/contact" }
+    ],
+    "themes": ["Day", "Night"]
+  },
+  "heading-cmp": {
+    "top": {
+      "heading": "Apartment renovation in Finland",
+      "text": "Have you decided to make a renovation? Our specialists are at your service! Affordable prices and top-level quality of work - that's about us! You just need to leave a request on the website, we will take care of the rest"
+    },
+    "bottom": {
+      "heading": "Discover Our Renovation Solutions",
+      "text": "To accurately indicate how much the finishing costs, a measuring technologist will come to you. He will assess the condition of the home, calculate the cost of preparatory work, and select construction and finishing materials together with you. After this, you will know exactly the cost of repairing each square meter. The repair assessment service is free."
+    }
+  },
+
+  "contact-us": {
+    "slogan": "Get in touch with us today!",
+    "heading": "Contact Us",
+    "form-content": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "btn-text": "Submit"
+  },
+
+  "features": {
+    "firstInstance": [
+      {
+        "pic": "/src/assets/images/features/f1.jpg",
+        "heading": "Quality Workmanship",
+        "text": "We deliver high-quality renovation services to enhance your living space."
+      },
+      {
+        "pic": "/src/assets/images/features/f2.jpg",
+        "heading": "Tailored Solutions",
+        "text": "Customized Renovation Plans"
+      },
+      {
+        "pic": "/src/assets/images/features/f3.jpg",
+        "heading": "Expert Team",
+        "text": "Experienced and Professional Team"
+      }
+    ],
+    "secondInstance": [
+      {
+        "pic": "/src/assets/images/features/f1.jpg",
+        "heading": "Free Estimate Preparation",
+        "text": "The estimate will be calculated as soon as possible and sent to you by email for review and adjustments."
+      },
+      {
+        "pic": "/src/assets/images/features/f2.jpg",
+        "heading": "Professional Team",
+        "text": "Our team of experienced professionals is dedicated to providing high-quality home renovation services."
+      },
+      {
+        "pic": "/src/assets/images/features/f3.jpg",
+        "heading": "No Advance Payment",
+        "text": "Payment is made after each stage of work is completed."
+      }
+    ]
+  },
+
+  "contact-us-now":"Contact us now!",
+
+  "promote-card":{
+    "heading":"Transform Your Home with Our Renovation Services",
+    "card-text":"Let us help you bring your dream home to life. Our team of experienced professionals is dedicated to providing high-quality renovation services tailored to your needs."
+  }
+}

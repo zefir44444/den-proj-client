@@ -16,11 +16,11 @@ const policies = ['#privacy-policy', '#terms-of-service', 'Cookie Policy'];
 
 export const FooterComponent = ({ footer_position = '' }) => {
   return (
-    <>
+    <footer className='footer mt-5 dark:bg-[#112342] bg-light-accent1'>
       <FooterTopCmp />
       <DividerCmp />
       <FooterBottomCmp />
-    </>
+    </footer>
   );
 };
 
@@ -65,7 +65,7 @@ const FooterTopCmp = () => {
 
   return (
     <div
-      className={`w-full md:px-16 px-10 py-8 dark:text-dark-foreground max-sm:text-center max-sm:gap-4 flex max-sm:flex-col justify-between items-center`}>
+      className={`w-full lg:px-[30%] px-10 py-8 dark:text-dark-foreground max-sm:text-center max-sm:gap-4 flex max-sm:flex-col justify-between items-center`}>
       {content.map((item, index) => {
         return index < 2 ? (
           <>
@@ -89,7 +89,7 @@ const FooterTopCmp = () => {
               {item.items.map((socialItem, index) => {
                 return (
                   <div className="flex gap-2">
-                    <img className="w-[20px]" src={socialItem.pic} alt="" />
+                    <img className="w-[25px]" src={socialItem.pic} alt="" />
                     <div key={index} className="cursor-pointer">
                       {socialItem.name}
                     </div>
@@ -106,14 +106,14 @@ const FooterTopCmp = () => {
 
 const DividerCmp = () => {
   return (
-    <div className="w-[90%] my-0 mx-auto border-b-[3px] border-light-foreground dark:border-dark-foreground"></div>
+    <div className="w-[90%] lg:w-[60%] my-0 mx-auto border-b-[3px] border-light-foreground dark:border-dark-foreground"></div>
   );
 };
 
 const FooterBottomCmp = () => {
   return (
     <div
-      className={`w-full h-44 px-4 md:px-16 py-8 dark:text-dark-foreground
+      className={`w-full h-44 px-4 md:px-[20%] py-8 dark:text-dark-foreground
                   flex justify-between max-sm:flex-col max-sm:items-center`}>
       <div className="copyright">
         &copy; 2024 Den Company. All rights reserved.

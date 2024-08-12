@@ -1,18 +1,22 @@
 import React from 'react';
 import { BtnComponent } from '../btn/btn-component';
+import { useTranslation } from 'react-i18next';
 
 export const AboutUsCpmponent = () => {
+  const [t, i18n] = useTranslation();
 
   return (
     <div
-    id='contact-us'
+      id="contact-us"
       className="about-us-cmp my-0 mx-auto items-center justify-center 
                     w-[500px] max-sm:max-w-[320px] 
                     shadow-2xl p-5 
                     rounded-lg">
       <form onSubmit={handleSubmit}>
-        <div className="text-end">Get in touch with us today!</div>
-        <div className="text-2xl font-bold mb-10">Contact Us</div>
+        <div className="text-end">{t('contact-us.slogan')}</div>
+        <div className="text-2xl font-bold mb-10">
+          {t('contact-us.heading')}
+        </div>
 
         <div className="form-inputs flex flex-col items-center justify-center gap-4 w-full">
           <ContactFormCmp />
@@ -24,7 +28,7 @@ export const AboutUsCpmponent = () => {
           <button
             type="submit"
             className="appearance-none focus:outline-none p-0 m-0 bg-transparent border-none w-[150px]">
-            <BtnComponent className="" btnType="wide" btnText="Submit" />
+            <BtnComponent className="" btnType="wide" btnText={t('contact-us.btn-text')} />
           </button>
         </div>
       </form>
@@ -33,30 +37,41 @@ export const AboutUsCpmponent = () => {
 };
 
 const ContactFormCmp = ({ formType = 'Name' }) => {
+  const [t, i18n] = useTranslation();
   return (
     <div className="flex justify-between w-full">
-      <div className="form-name">{formType}</div>
+      <div className="form-name">
+        {formType === 'Name'
+          ? t('contact-us.form-content.name')
+          : t('contact-us.form-content.email')}
+      </div>
       <input
         className="bg-transparent w-[80%]
                                   border-[1px] border-dark-background dark:border-dark-foreground
                                   rounded-2xl text-center focus:outline-none h-9"
-        type={formType.toLowerCase()}
+        type={formType === 'Name' ? 'username' : 'email'}
         name={formType}
-        placeholder={formType}
+        placeholder={
+          formType === 'Name'
+            ? t('contact-us.form-content.name')
+            : t('contact-us.form-content.email')
+        }
       />
     </div>
   );
 };
 
 const TextAreaCmp = ({ label = 'Message', maxLength = 200 }) => {
+  const [t, i18n] = useTranslation();
+
   return (
     <div className="flex flex-col w-full mt-5">
-      <label className="form-label mb-2 text-center">{label}</label>
+      <label className="form-label mb-2 text-center">{t('contact-us.form-content.message')}</label>
       <textarea
         className="bg-transparent w-full p-2
                                   border-[1px] border-dark-background dark:border-dark-foreground
                                   rounded-2xl focus:outline-none max-h-28 min-h-24 overflow-hidden"
-        placeholder={label}
+        placeholder={t('contact-us.form-content.message')}
         maxLength={maxLength}
         name={label}></textarea>
     </div>
